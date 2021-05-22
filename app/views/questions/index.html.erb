@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css"/>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<div class="container" style="padding: 30px;">
+<%= form_tag '/upload', multipart: true do %>
+  <label class="form-label" for="file">File to Upload</label> 
+  <%= file_field_tag "file",:class=> "input-sm"  %>
+  <br>
+  <%= submit_tag 'Upload CSV' %>
+<% end %>
+<table id="questions" class="table table-bordered" width="100%">
+    <thead>
+  <tr>
+  	<th>ID</th>
+    <th>Pri</th>
+    <th>Question</th>
+    <th>Teaming Stages</th>
+    <th>Appears (Day)</th>
+    <th>Frequency</th>
+    <th>Type</th>
+    <th>Role</th>
+    <th>Required?</th>
+    <th>Conditions</th>
+    <th>Mapping</th>
+   
+  </tr>
+    </thead>
+        <tbody>
+<%@questions.each do |q|%>
+  <tr>
+  	<th><%=q.id%></th>
+    <td><%=q['pri']%></td>
+    <td><%=q['qu_title']%></td>
+    <td><%=q['team_stages']%></td>
+    <td><%=q['appears']%></td>
+    <td><%=q['frequency']%></td>
+    <td><%=q['qus_type']%></td>
+    <td><%=q.role.role_type%></td>
+    <td><%=q['required']%></td>
+    <td><%=q['conditions']%></td>
+    <td><%=q.mapping.map_name%></td>
+  </tr>
+  <%end%>
+</tbody>
+</table>
+</div>
+
+
+<script type="text/javascript">
+
+$(document).ready( function () {
+    $('#questions').DataTable();
+} );
+	
+</script>
+	
