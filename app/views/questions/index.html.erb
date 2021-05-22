@@ -3,13 +3,13 @@
 <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
 <div class="container" style="padding: 30px;">
 <%= form_tag '/upload', multipart: true do %>
-  <label class="form-label" for="file">File to Upload</label> 
+  <!-- <label class="form-label" for="file">File</label>  -->
   <%= file_field_tag "file",:class=> "input-sm"  %>
   <%= submit_tag 'Upload CSV' %>
 <% end %>
   <br>
 
-<table id="questions" class="table table-bordered" width="100%">
+<table id="questions" class="table table-bordered table-striped" width="100%">
     <thead>
   <tr>
   	<th>ID</th>
