@@ -5,9 +5,10 @@
 <%= form_tag '/upload', multipart: true do %>
   <label class="form-label" for="file">File to Upload</label> 
   <%= file_field_tag "file",:class=> "input-sm"  %>
-  <br>
   <%= submit_tag 'Upload CSV' %>
 <% end %>
+  <br>
+
 <table id="questions" class="table table-bordered" width="100%">
     <thead>
   <tr>
